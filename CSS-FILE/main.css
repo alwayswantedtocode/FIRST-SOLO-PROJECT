@@ -1,0 +1,1242 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather&display=swap');
+
+
+/*Oxford Blue
+#3C4F5D
+
+Botticelli
+#C8DCE6
+
+Ship Cove
+#779DBB
+
+Rock Blue
+#9ABBD0 */
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    
+   
+    
+    
+
+}
+html {
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+}
+body{
+    font-family: 'Merriweather', serif;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: rgb(250, 250, 250);
+    /* background-image: url(/CSS-FILE/images/Car-background.jpg);
+    background-size:cover;
+    background-position:center; */
+}
+
+/* To active scroll bar in the mobile menu bar mode*/
+body.hidden-scrolling{
+    overflow-y: hidden;
+}
+
+
+/* web view menu:the properties of everything that makes up the navigation bar*/
+.header{
+    width:100%;
+    position:fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    padding: 10px;
+    background-color: rgb(24, 24, 24);
+    display: flex;
+    justify-content: space-between;
+    border:3px solid rgb(24, 24, 24);
+    box-shadow: 1px 1px 1px ;
+    
+}
+
+a{
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+
+}
+ul {
+    list-style: none;
+    margin: 0 0px;
+    
+}
+
+
+/* web view of the Xpress car div:properties of the content of the div*/
+.div-container .home-reload {
+    margin:4px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px 0px;
+    font-size: 15px;
+    font-weight: 1000;
+    align-items: center;
+    
+     
+}
+.x{
+    font-size:30px ;
+}
+
+
+/* web view menu list:the properties of the menu list*/
+.header .nav-list > .menu-list{
+    display:inline-block;
+    margin:2px;
+    
+    padding: 15px 5px;
+    font-size: 15px;
+    position: relative;
+    text-transform: capitalize;
+    /*transition: all 0.3s ease;*/
+   
+}
+.header .nav-list > .menu-list > a{
+    display: block;
+}
+
+/* web view menu list:how the menu behave when your consor is no it*/
+.header .nav-list > .menu-list a:hover  {
+    text-decoration: underline;
+    opacity: 0.75;
+    font-size: 16px;
+
+
+}
+
+
+/* web view menu:building up the sub- menu*/
+.header .nav-list .menu-list > .sub-menu{
+    box-shadow: 0 0 10px #ffffff;
+    width: 200px;
+    position:absolute;
+    left: 0;
+    top: 100%;
+    border-top:5px solid rgb(24, 24, 24);
+    transform:translateY(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.header .nav-list .menu-list > .sub-menu > .sub-menu-list{
+    display: block; 
+}
+
+.header .nav-list .menu-list > .sub-menu > .sub-menu-list > a{
+    display: block;
+    padding: 10px 20px; 
+    text-align:left;
+    font-size: 15px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+}
+
+.header .nav-list .menu-list > .sub-menu > .sub-menu-list > a:hover{
+    font-size: 16px;
+}
+
+
+/* how to make the plus sign or arrow sign indicator that tells 'there is more under this menu list' */
+.header .nav-list > .menu-list > a .plus{
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    /* background-color: blue; */
+    margin:0 5px;
+    position: relative;
+    pointer-events: none;/*this is used to open the sub-menu when on mobile mode*/
+}
+
+.header .nav-list > .menu-list > a .plus:before,
+.header .nav-list > .menu-list > a .plus:after{
+    content:'';
+    box-sizing: border-box;
+    left: 20%;/*to do plus sign this is left is 50%*/
+    top: 55%;/*to do plus sign this is top is 50%*/
+    position: absolute;
+    background-color: white;
+    height: 2px;       /* this is what make the first line of the plus display*/
+    width: 100%;      /* this is what make the first line of the plus display*/
+    transform: translate(-50%,-50%) rotate(45deg);/*to do plus sign, rotate in before,after is not included*/
+    transition: all 0.3s ease;
+}
+
+.header .nav-list  .menu-list > a .plus:after{
+    transform: translate(-50%,-50%) rotate(-45deg);/*to do plus sign, rotate in after is -90deg*/
+     left: 80.0%; /*to do plus sign this is left in after is not included */
+    
+}
+ /*  How to do burger-like menu icon */
+ .header .menu-Icon{
+    height: 40px;
+    width: 40px;
+    /* background-color: #ffffff; */
+   margin-right: 15px;
+   display: none;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+}  
+
+.header .menu-Icon span{
+    display: block;
+    height: 5.1px;
+    width: 24px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    cursor: pointer;
+}
+
+.header .menu-Icon span:before,
+.header .menu-Icon span:after{ /* this produces the first bar*/
+    content: '';
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+.header .menu-Icon span:before{ /* this produces the second bar*/
+    top: -8px;
+}
+.header .menu-Icon span:after{ /* this produces the third bar*/
+    top: 8px;
+}
+
+/* icon to close menu*/
+.header .menu-Icon-close{
+    height: 40px;
+    width: 40px;
+    /* background-color: blue; */
+    margin-right:0 0 15px 15px;
+    display: none; 
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.header .menu-Icon-close .X-close{
+    width: 24px;
+    font-size: 40px;
+    
+} 
+
+.header .menu-overlay{ /*This tint the body of the website when the menu bar is opened on mobile view */
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0,0,0,0.5);
+    left: 0;
+    top: 0;
+    height: 100%;
+    width:100%;
+    visibility: hidden;
+    /* display:none; */
+    opacity: 1;
+    transition: all 0.3s ease;
+    
+}    
+ 
+
+
+
+
+/* this works because we are acesssing sub-menu *> .sub-menu* */
+ @media only screen and (min-width:992px){ 
+
+   .header .nav-list .home-sub-list:hover > .sub-menu{
+    transform:translateY(0px);
+    opacity: 1;
+    visibility: visible;
+ }
+
+   /* how to make the plus sign or arrow sign indicator that tells 'there is more under this menu list' inverse */
+   .header .nav-list .home-sub-list:hover > a .plus:before,
+   .header .nav-list .home-sub-list:hover > a .plus:after{
+    content:'';
+    box-sizing: border-box;
+    left: 20%;
+    top: 55%;
+    position: absolute;
+    background-color: white;
+    height: 2px;       
+    width: 100%;      
+    transform: translate(-50%,-50%) rotate(-45deg);
+    transition: all 0.3s ease;
+ }
+
+ .header .nav-list .home-sub-list:hover > a .plus:after{
+    transform: translate(-50%,-50%) rotate(45deg);
+    left: 80.0%;
+ }
+
+
+
+} 
+ 
+
+
+
+
+/* responsive adaptation for phones and tablet screen */
+@media only screen and (max-width:991px)
+{
+    .header .navigation{ 
+        position: fixed;
+        right:-250px;/*initially zero*/
+        width:280px;
+        height: 100%;
+        overflow-y: auto; 
+        background-color: rgb(24, 24, 24);
+        top: 0;
+        z-index: 1000;
+        padding: 15px 0;
+        transition: all 0.5s ease ;
+        visibility:hidden ;
+         
+    }
+
+    .header .nav-list > .menu-list{
+        display: block;
+        margin: 0;
+        
+        
+    }
+
+    .header .nav-list > .menu-list > a{
+        border-bottom:1px solid white;
+        padding: 15px 10px  ;
+        /* margin-top: 10px;  */
+        
+    }
+
+    .header .nav-list > .menu-list:first-child > a{
+        border-top: 1px solid white;
+    }
+
+
+    .header .nav-list  .menu-list a:hover{
+        text-decoration: underline;
+        opacity: 0.75;
+        font-size: 16px;
+        
+    }
+
+    .header .nav-list > .home-sub-list > a{
+        display: flex;
+        justify-content: space-between;/*give space btw menu list and sign that tell us there is a sub-list*/
+        align-items: center;
+        
+        
+    }
+    
+    /* Sub-menu parameters */
+    .header .nav-list > .menu-list > .sub-menu{
+        width:100%;
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        transform: translateY(0px);
+        padding: 0px;
+        top: auto;
+        left: auto;
+        max-height:0 ;
+        overflow: hidden;
+        
+    }
+
+
+    /* toggle or reveal the submenu */
+    .header .nav-list > .menu-list > .sub-menu.open{
+        max-height: 190px;
+    }
+
+
+    .header .nav-list .menu-list > .sub-menu > .sub-menu-list > a { 
+    padding:12px 45px ;
+    color: white;
+    border-bottom: 1px solid;
+    margin:12px;
+   }
+     
+    .header .menu-Icon-close,
+    .header .menu-Icon{
+       display: flex; /* this is to display the menu buger bugger oppen and close bar when using phone and tablets*/
+    }
+
+
+    /* for javascript to open mobile menu and close it */
+    .header .navigation.open{
+        visibility: visible;
+        right:0px;
+    } 
+    .header .navigation.close{
+        visibility: hidden;
+    }
+
+    /*This add and remove tint from the body of the website when the mobile menu bar when is clicked. It also removes the tint and the menu bar when the tint div is clicked */
+    .header .menu-overlay.open{ 
+        visibility: visible;
+       
+        opacity: 1; 
+        
+    }
+    .header .menu-overlay.close{
+        visibility: hidden;
+       
+        opacity: 0; 
+    }
+ 
+   .header .nav-list > .home-sub-list.active > a .plus:before,
+   .header .nav-list > .home-sub-list.active > a .plus:after{
+        content:'';
+        box-sizing: border-box;
+        left: 20%;
+        top: 55%;
+        position: absolute;
+        background-color: white;
+        height: 2px;       
+        width: 100%;      
+        transform: translate(-50%,-50%) rotate(-45deg);
+        transition: all 0.3s ease;
+       
+    }
+
+
+    .header .nav-list > .home-sub-list.active > a .plus:after{
+        transform: translate(-50%,-50%) rotate(45deg);
+        left: 80.0%;
+        
+     }
+
+   
+   
+   
+}
+
+/* Main body of the website */
+main{
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    overflow-x:hidden;
+    width: 100%;
+
+}
+@media only screen and (max-width:991px){
+    main{
+        position: absolute;
+        z-index: 1;
+        top: 12%;
+        overflow-x:hidden;
+        overflow-y: hidden;
+        width: 100%;
+    }
+}
+.main-container{
+    width: 100%;
+    height: 795px;
+    /* border: 3px solid rgb(17, 0, 255); */
+    transition: 0.9s ease-in-out 
+}
+.img-slide-container{
+   height: 650px;
+   position: relative;
+}
+
+.img-slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+     
+} 
+
+.img-slide img {
+    width: 100%;
+    height: 100%;  
+   
+}
+
+.car-description-explore-button-link{
+    position: relative;
+}
+
+.car-description{
+    width: 100%;
+    height: 140px;
+    /* border: 3px solid blue; */
+    position: absolute;
+}
+
+
+.title{
+    letter-spacing: 1.5px;
+    color: rgb(24, 24, 24);
+    text-align: center;
+    font-weight: 500px;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.catch-phrase{
+    text-align: center;
+    color: rgb(24, 24, 24);
+    margin-top: 12px;
+    font-weight: lighter;
+}
+
+.coverExploreCarSlide{
+    display: flex;
+    justify-content: center;
+}
+
+.exploreCarSlide{
+    width:190px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(24, 24, 24);
+    border-radius: 18px;
+    margin: 12px 0 12px 0;
+    cursor: pointer;
+}
+/* .exploreCarSlide>a>i{
+    color: #ebebeb
+} */
+    .explore-properties{
+    color: rgb(247, 244, 244);
+}
+
+.coverExploreCarSlide>.exploreCarSlide >.explore-properties >i{
+    display: inline-block;
+    padding-left: 3px;
+    font-size: 12px;
+    visibility: hidden; 
+    transition: all 0.3s ease-in-out;
+    /* color: rgb(246, 241, 241); */
+
+}
+
+.coverExploreCarSlide>.exploreCarSlide:hover>.explore-properties >i{
+    visibility: visible; 
+    padding: 0 0 0 10px;
+}
+
+.coverExploreCarSlide>.exploreCarSlide:hover{
+    /* background-color: rgb(194, 194, 194); */
+    opacity: 0.85;
+}
+
+.previous-btn,
+.next-btn{
+    width: 50px;
+    height: 50px;
+    background: #0d000000;
+    padding: 15px;
+    position: absolute;
+    top: 20.5%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+i.fa-solid.fa-chevron-left,
+.fa-solid.fa-chevron-right{
+    display: flex;
+    justify-content: center;
+    color:#ebebeb;
+
+}
+
+.previous-btn{
+    left: 20px;
+    
+}
+
+.next-btn{
+    right: 20px;
+    
+}
+
+.navDotCover{
+    display: flex;
+    align-items:center; 
+    justify-content: center; 
+    top:-12rem;
+    position: relative;  
+}
+.navigation-dot{
+    background-color: #fffffe;
+    border-radius: 10px;
+    align-items:center;
+    justify-content: center;
+    margin: auto;
+    width: 100px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow:0 4px 8px rgba(0,0,0,0.6) ;
+}
+
+.single-dot{
+    background-color: #2b2a2a;
+    cursor: pointer;
+    height: 12px;
+    width:12px ;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.single-dot.active{
+    background-color: #8e8e8c;
+}
+/* -----------First Section media query------------ */
+@media only screen and (max-width:991px){
+    .main-container{
+        width: 100%;
+        height: 655px;
+        /* border: 3px solid rgb(17, 0, 255); */
+        transition: 0.9s ease-in-out ; 
+        
+        
+    }
+
+    .img-slide-container{
+        width: 100%;
+        height: 500px;
+        position: relative;
+    }
+     
+    .img-slide{
+        width: 100%;
+        height: 100%;
+        background-position: center;  
+        background-size: cover;  
+        position: absolute;
+
+    } 
+     
+    .img-slide img {
+        width: 100%;
+        height: 100%;
+        background-position: center;  
+        background-size: cover;  
+    }
+
+    .car-description{
+        width: 100%;
+        height: 140px;
+        /* border: 3px solid blue; */
+        position: absolute;
+    }
+
+    .previous-btn,
+    .next-btn{
+        width: 50px;
+        height: 50px;
+        background: #0d000000;
+        padding: 15px;
+        position: absolute;
+        top: 13.5%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+        z-index: 100;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+    }
+
+    .navDotCover{
+        display: flex;
+        align-items:center; 
+        justify-content: center; 
+        top:-12.5rem;
+        position: relative;  
+    }
+    .navigation-dot{
+        background-color: #fffffe;
+        border-radius: 10px;
+        align-items:center;
+        justify-content: center;
+        margin: auto;
+        width: 100px;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow:0 4px 8px rgba(0,0,0,0.6) ;
+    }
+   
+    
+   
+}
+   
+
+.exploreCarType{
+    width:100%;
+    height: 700px;
+    /* border: 2px solid blue; */
+}
+
+.secondSection{ 
+    height: 1000px; 
+    /* background-color:rgb(255, 255, 255); */ 
+ }
+.exploreCarTypeHeading>h1{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: rgb(24, 24, 24);
+    margin-bottom: 5px;
+}
+
+.exploreCarTabs{
+    position: relative;
+    height: 600px;
+    /* background-color: rgb(255, 255, 255); */
+    overflow:visible;
+    /* border: 2px solid rgb(0, 110, 42); */
+   
+}
+.TabHeaders{
+    /* border: 2px solid brown; */
+    width: 70%;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 0;
+}
+.TabHeaders>.exploreCarTabHeaders{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2px;
+    /* margin: auto; */
+    
+    /* border-bottom:3px solid rgb(229, 229, 229) */
+}
+
+.exploreCarTabHeaders>div{
+    /* width: calc(80%/4); */
+    cursor: pointer;
+    /* outline: #2b2a2a;*/
+    justify-content: center; 
+    margin: auto;
+    /* margin-top: 10px; */
+    padding: 0px;
+    /* padding-bottom: 5px; */
+    border:3px solid rgb(229, 229, 229) ;
+    
+}
+
+
+.exploreCarTabHeaders>div.active{
+    font-weight: bold;
+    
+}
+
+.tabIndicatorCover{
+    position: relative;
+}
+
+.tabIndicator{
+    position: absolute;
+    width: calc(80%/4); 
+    height: 3px;
+    background:  rgb(24, 24, 24);
+    left: 19.6%;
+    border-radius: 5px;
+    top:4%;
+    transition: 500ms ease-in-out;
+    /* transform: translateY(-50%); */
+    
+    
+}
+.mobileTabContainer{
+    display: none;
+}
+
+.exploreCarTabBody{
+   position: relative;
+   width: 100%;
+   height: 360px;
+   border: 2px solid red;
+   /* overflow: scroll; */
+   /* margin-top:-570px; */
+   margin-bottom: 0px;
+   
+   
+}
+
+.exploreCarTabBody>div{
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    /* top:10%; */
+    opacity:0;
+    transition: opacity all 300ms ease-in-out 0ms;
+    border: 2px solid rgb(24, 24, 24);
+    /* margin-bottom: 20px; */
+}
+
+.exploreCarTabBody>div.active{
+    top:0%;
+    opacity: 1;
+
+}
+
+.tabOne, .tabTwo, .tabThree, .tabFour{
+    transition:all 0.3s ease-in-out;
+    
+}
+.tabSlide{
+    min-width: 620px;
+    height: 330px;
+    /* border: 2px solid green; */
+    margin: 0px 10px 0 10px;
+    border-radius: 10px;
+    float: left;
+    display: flex;
+ 
+} 
+
+.CarImage{
+    width:60%;
+    height:330px ;
+    cursor: pointer;
+    /* border: 2px solid greenyellow; */
+
+}
+
+.CarImage img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius:10px;
+}
+
+.aboutCarInfo{
+    width:40%;
+    height:330px;
+    background-color:#9BADAD;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+
+.lightDisColorGrad{
+    width: 100%;
+    height: 45px;
+    background-image: linear-gradient(transparent,black);
+    /* border: 2px solid blue; */
+    border-bottom-left-radius:10px;
+    position: relative;
+    bottom:50px;
+    
+}
+.lightDisColorGrad>p{
+    color: #fafafa;
+    font-size: 10px;
+    padding: 22px 0 0 5px;
+    
+}
+
+.tabNavBtns{
+    position:relative;
+    display: block;
+    justify-content: center;
+    border: 3px solid rgb(24, 24, 24);
+    width: 100%;
+    bottom:179.5px;
+    /* margin-top: -180px; */
+    /* bottom:150px; */
+    /* padding: 30px; */
+    /* margin-bottom: 0%; */
+    
+} 
+
+.slideCounter{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+   
+} 
+.exploreAllCover{
+    display: flex; 
+    
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #070707; 
+ 
+
+}
+.exploreAllCover>.exploreAll{
+    color:rgb(24, 24, 24);
+    font-weight:600 ;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+.exploreAllCover>.exploreAll>i{
+    padding-top: 4px;
+    padding-left: 5px;
+    font-size: 15px;
+    color:rgb(24, 24, 24);
+    transition: all 0.3s;
+}
+.exploreAllCover>.exploreAll:hover{
+    opacity: 0.75;
+}
+.exploreAllCover>.exploreAll:hover>i{
+    padding-left: 8px;
+    opacity: 0.75;
+}
+
+.backBtn,.frontBtn{
+    width:50px;
+    height: 30px;
+    background: rgb(24, 24, 24);
+    padding: 5px;
+    cursor: pointer;
+    position: absolute ;
+    bottom:25.6%;
+    z-index: 101;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border-top-left-radius:50px;
+    border-bottom-left-radius:50px; 
+    border-top-right-radius:50px;
+    border-bottom-right-radius:50px; 
+   
+}
+.backBtn>i{
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content:center;
+    font-size: 20px; 
+}
+.frontBtn>i{
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content:center;
+    font-size: 20px;  
+}
+
+.backBtn{
+    right: 740px;
+}
+.frontBtn{
+    left: 740px; 
+}
+
+/* ------------Section Media Query------------- */
+@media only screen and (max-width:991px){
+ /* Remove webview of tab heading begins here  */
+    .exploreCarTabHeaders{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 0 2px;
+        margin: 5px;
+        visibility: hidden;
+    }
+
+    .tabIndicatorCover{
+        position: relative;
+        visibility: hidden;
+    }
+
+    .tabIndicator{
+        position: absolute;
+        width: calc(60%/4); 
+        height: 3px;
+        background:  rgb(24, 24, 24);
+        left:16rem;
+        border-radius: 5px;
+        top:2.55rem;
+        transition: 500ms ease-in-out;
+        visibility: hidden;
+        
+    }
+ /* Remove webview of tab heading ends here  */
+
+
+ /* Mobile/Tablet view of tab heading begins here   */
+    .exploreCarTypeHeading>h1{
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        color: rgb(24, 24, 24);
+        margin-bottom: 5px;
+    }
+    .mobileTabContainer{
+        margin-top: -55px;
+        margin-bottom: 80px;
+        padding:32px;
+        display: flex;
+        justify-content: center;
+        /* bottom: 650px; */
+    }
+    
+    .mobileTabItemBox{
+        display:flex;
+        position: absolute;
+        flex-direction: column;
+        z-index: 99;
+    }
+    
+    .mobileTabItemBox .mobileTabItemCon{
+        background-color: #ffffff;
+        color: rgb(24, 24, 24);
+        max-height: 0;
+        width: 100%;
+        opacity: 0;
+        transition: all 0.3s;
+        /* border: 1px solid #070707; */
+        border-radius: 8px;
+        order:1;
+    }
+    .mobileTabItemBox .mobileTabItemCon.active{
+        max-height: 240px;
+        opacity: 1;
+    }
+    .mobTabDisplayCon{
+        position: relative;
+        width: 220px;
+        display: flex;
+        background:#ffffff; 
+        border-radius: 8px;
+        border: 1px solid #070707;
+        color: rgb(24, 24, 24);
+        margin-bottom: 8px;
+        order: 0;
+    }
+    .mobileTabDisplay{
+        justify-content: center;
+        align-items: center;
+        
+        
+    
+    }
+    .mobTabDisplayCon>i{
+        position: absolute;
+        color: rgb(24, 24, 24);
+        transition: all 0.3s;
+        right: 20px;
+        bottom: 15px;
+        /* padding: 15px 0 0 0; */
+    }
+    .mobTabDisplayCon.active>i{
+        transform: rotateZ(180deg);
+        right: 20px;
+        top: 15px;
+        
+    }
+    .mobileTabItemCon .items,.mobileTabDisplay{
+        padding: 12px 24px;
+        cursor: pointer;
+    }
+    .mobileTabItemCon .items:hover{
+        background: #0f7dcb;
+        border-radius: 8px;
+    }
+    
+    .mobileTabItemBox label{
+        cursor: pointer;
+    }
+    .mobileTabItemCon .items .radio{
+        display: none;
+    }
+
+ /* Mobile/Tablet view of tab heading begins here   */
+    .exploreCarTabs{
+        position: relative;
+        height: 100%;
+        /* background-color: rgb(255, 255, 255); */
+        overflow: hidden;
+    }
+    .exploreCarTabBody{
+        position: relative;
+        width: 100%;
+        height: 630px;
+        border: 2px solid red;
+        /* overflow: scroll; */
+        margin-top: -60px;
+        
+        
+    }
+     
+    .exploreCarTabBody>div{
+        position: absolute;
+        display: flex;
+        justify-content: left;
+        /* margin-top: 20px; */
+        /* top:10%; */
+        opacity:0;
+        transition: opacity all 300ms ease-in-out 0ms;
+        border: 2px solid rgb(24, 24, 24);
+    }
+     
+    .exploreCarTabBody>div.active{
+        top:0%;
+        opacity: 1;
+     
+    }
+     
+    .tabOne, .tabTwo, .tabThree, .tabFour{
+        transition:all 0.3s ease-in-out;
+         
+    }
+    
+    .tabSlide{
+        min-width: 350px;
+        height: 605px;
+        border: 2px solid green;
+        margin: 0px 10px 0 10px;
+        border-radius: 10px;
+        float: left;
+        display: block;
+      
+    } 
+    /* .CarImage {
+        display: none;
+    } */
+    .CarImage{
+        width:100%;
+        height: 270px ;
+        cursor: pointer; 
+        /* border: 2px solid greenyellow; */
+        border-top-right-radius: 10px;
+        
+    }
+    
+    .mobileCarImage img{
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+     
+    .aboutCarInfo{
+        width:100%;
+        height:330px;
+         /* border: 2px solid greenyellow; */
+        background-color:#9BADAD;
+        border-bottom-right-radius:10px;
+        border-bottom-left-radius:10px;
+        border-top-right-radius:0px;
+        
+    }
+    
+     
+    .lightDisColorGrad{
+        width: 100%;
+        height: 45px;
+        background-image: linear-gradient(transparent,black);
+        /* border: 2px solid blue;*/
+        border-bottom-left-radius:0px;
+        position: relative;
+        bottom:50px;
+    
+    }
+    .lightDisColorGrad>p{
+        color: #fafafa;
+        font-size: 10px;
+        padding: 22px 0 0 5px;
+         
+    }
+
+    .tabNavBtns{
+        position:relative;
+        display: block;
+        justify-content: center;
+        /* align-items: center; */
+        border: 3px solid rgb(24, 24, 24);
+        /* height: 100px; */
+        width: 100%;
+        bottom:270.5px;
+        /* margin-top: -180px; */
+        /* bottom:150px; */
+        /* padding: 30px; */
+        /* margin-bottom: 0%; */
+        
+    } 
+   
+    .backBtn,.frontBtn{
+        width:50px;
+        height: 30px;
+        background: rgb(24, 24, 24);
+        padding: 5px;
+        cursor: pointer;
+        position: absolute ;
+        bottom:10.8%;
+        z-index: 101;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        border-top-left-radius:50px;
+        border-bottom-left-radius:50px; 
+        border-top-right-radius:50px;
+        border-bottom-right-radius:50px; 
+       
+    }
+
+    .backBtn{
+        right: 420px;
+    }
+    .frontBtn{
+        left: 420px; 
+    }
+    
+}
+/* @media only screen and (max-width:1025px){
+    .exploreCarTypeHeading>h1{
+        display: flex;
+        justify-content: center;
+        font-size: 32px;
+        color: rgb(255, 255, 255);
+        margin-bottom: 5px;
+    }   
+} */
+
+footer{
+    background-color: #070707;
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    top:2000px
+}
